@@ -18,7 +18,8 @@ This **SAS macro** retrieves and filters **CDISC Controlled Terminology (CT)** c
 - [How to Use](#how-to-use)
 - [Parameters](#parameters)
 - [Output](#output)
-- [Example Usage](#example-usage)
+- [Example Usage](#Example_Usage)
+- [License](#license)
 
 
 ## Prerequisites
@@ -89,7 +90,7 @@ The macro generates the following outputs:
 - **Extensibility Flag**: If the codelist is extensible, the output dataset will include a flag indicating so.
 - **Filtered Codelists**: The codelist is filtered based on the provided **codelistValue** and **codelistType** parameters.
 
-## Example Usagae
+## Example_Usage
 %*Test for SDTM standard;
 %GetCDISCCodelist(codelistValue=AGEU);
 
@@ -98,3 +99,8 @@ The macro generates the following outputs:
 
 ### Conclusion
 This macro can be a very useful tool for fetching and working with CDISC Controlled Terminology (CT) codelists in your clinical trial datasets. If you have any questions or suggestions, feel free to reach out or create an issue in the GitHub repository.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
