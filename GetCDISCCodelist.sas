@@ -1,3 +1,40 @@
+/**
+@file GetCDISCCodelist.sas
+
+@brief Retrieves a specified CDISC Controlled Terminology codelist via CDISC Library API.
+
+@details 
+This macro connects to the CDISC Library API using a valid API key to retrieve a specific codelist and its associated terms for standards such as SDTM, ADaM, and others. It supports both ID and CodelistCode-based lookup and can dynamically determine the latest terminology version if not explicitly provided. The result is output to a SAS dataset for further use in metadata-driven processes or validation tasks.
+
+Syntax:
+@code
+%GetCDISCCodelist(
+    codelistValue=AGEU,
+    codelistType=ID,
+    standard=SDTM,
+    version=,
+    outlib=WORK
+);
+@endcode
+
+Usage:
+@code
+%GetCDISCCodelist(codelistValue=DTYPE, standard=ADAM);
+@endcode
+
+@param codelistValue The name or code of the codelist to retrieve (e.g., AGEU, PARAMCD, DTYPE).
+@param codelistType Specifies the type of match: either ID or CODELISTCODE.
+@param standard CDISC standard to use (e.g., SDTM, ADAM). Defaults to SDTM.
+@param version Controlled Terminology version in YYYY-MM-DD format. If omitted, the latest version is retrieved automatically.
+@param outlib Output library where the resulting datasets will be stored. Defaults to WORK.
+
+@return Creates two output datasets in the specified library: one for merged codelists and another for the filtered codelist containing only the requested items.
+
+@version 1.0
+
+@author Saikrishnareddy Yengannagari
+*/
+
 %let cdiscapikey=Your_CDISC_API_KEY;
 %macro GetCDISCCodelist(
     codelistValue=,  /* The codelist name (e.g., AGEU, PARAMCD) */
